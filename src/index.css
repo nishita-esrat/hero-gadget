@@ -1,0 +1,16 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active{
+  @apply transition-colors text-cyan-700 duration-300 hover:text-cyan-600
+}
+
+.default{
+  @apply transition-colors text-gray-700 duration-300 hover:text-cyan-600
+}
+
+.container{
+  @apply w-[90%] mx-auto md:w-[85%]
+}
