@@ -11,7 +11,7 @@
 }
 
 .container {
-  @apply w-[90%] mx-auto md:w-[85%];
+  @apply w-[90%] mx-auto xl:w-[1150px];
 }
 
 .btn-primary {
