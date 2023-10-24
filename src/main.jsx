@@ -7,6 +7,7 @@ import Home from "./component/Home.jsx";
 import ErrorPage from "./component/ErrorPage.jsx";
 import Shop from "./component/Shop.jsx";
 import CartItem from "./component/CartItem.jsx";
+import LoaderFunction from "./component/LoaderFun.js";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <CartItem />,
+        loader: LoaderFunction,
       },
     ],
   },
