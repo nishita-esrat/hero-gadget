@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div>
+    <div className="mb-10">
       <div className="bg-gray-200 h-64 pt-20 pb-96">
         <div className="container flex flex-col justify-center items-center gap-7 text-center">
           <h1 className="title-text text-2xl sm:text-4xl md:text-5xl lg:text-6xl md:pb-5"> Welcome To HeroGadget</h1>

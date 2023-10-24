@@ -33,7 +33,7 @@ const Header = () => {
         >
           Shop
         </NavLink>
-        <Link className="relative" title="cart">
+        <Link to='/cart' className="relative" title="cart">
           <ShoppingCartIcon className="h-6 w-6 text-cyan-700" />
           <span className="absolute left-6 bottom-2">0</span>
         </Link>
@@ -72,7 +72,7 @@ const Header = () => {
             >
               Shop
             </NavLink>
-            <Link className="relative" title="cart">
+            <Link to='/cart' className="relative" title="cart">
               <ShoppingCartIcon className="h-6 w-6 text-cyan-700" />
               <span className="absolute left-6 bottom-2">0</span>
             </Link>
