@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { CartListContext } from "../App";
 import {
   ShoppingCartIcon,
   Bars3Icon,
@@ -7,6 +8,7 @@ import {
 } from "@heroicons/react/24/solid";
 
 const Header = () => {
+  const [cartItem] = useContext(CartListContext);
   const [isOpen, setIsOpen] = useState(false);
   return (
     // starting point
@@ -17,7 +19,7 @@ const Header = () => {
         </div>
         <span className="text-xl font-bold">HeroGadget</span>
       </div>
-
+      {/* laptop item */}
       <div className="flex gap-7 items-center text-base font-medium hidden md:flex">
         <NavLink
           to="/"
@@ -33,13 +35,14 @@ const Header = () => {
         >
           Shop
         </NavLink>
-        <Link to='/cart' className="relative" title="cart">
+        <Link to="/cart" className="relative" title="cart">
           <ShoppingCartIcon className="h-6 w-6 text-cyan-700" />
-          <span className="absolute left-6 bottom-2">0</span>
+          <span className="absolute left-6 bottom-2">
+            {cartItem.length ? cartItem.length : 0}
+          </span>
         </Link>
       </div>
 
-      
       {/* mobile bar icon  */}
       <Bars3Icon className="w-8 md:hidden" onClick={() => setIsOpen(true)} />
 
@@ -72,9 +75,11 @@ const Header = () => {
             >
               Shop
             </NavLink>
-            <Link to='/cart' className="relative" title="cart">
+            <Link to="/cart" className="relative" title="cart">
               <ShoppingCartIcon className="h-6 w-6 text-cyan-700" />
-              <span className="absolute left-6 bottom-2">0</span>
+              <span className="absolute left-6 bottom-2">
+                {cartItem.length ? cartItem.length : 0}
+              </span>
             </Link>
           </div>
         </div>

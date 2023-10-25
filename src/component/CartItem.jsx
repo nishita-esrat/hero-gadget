@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import SingleCartItem from "./SingleCartItem";
 import { CartListContext } from "../App";
 
+
 const CartItem = () => {
-  const [cartItem, setCartItem] = useContext(CartListContext);
+  const [cartItem , setCartItem] = useContext(CartListContext);
+ 
   const totalAmount = () => {
     let total = 0;
-    cartItem.map((item) => {
+    cartItem.forEach((item) => {
       let amount = item.quantity * item.price;
       total = total + amount;
     });
@@ -22,7 +24,7 @@ const CartItem = () => {
           </h2>
           {/* cart container */}
           <div className="divide-y-4">
-            {cartItem.length &&
+            {cartItem.length != 0 &&
               cartItem.map((item) => (
                 <SingleCartItem key={item.id} cart={item} />
               ))}
