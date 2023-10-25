@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { TrashIcon } from "@heroicons/react/24/solid";
 import { removeItem } from "../utils";
 import { CartListContext } from "../App";
+import toast from "react-hot-toast";
 
 const SingleCartItem = ({ cart }) => {
   const { picture, price, name, id, quantity } = cart;
@@ -11,6 +12,7 @@ const SingleCartItem = ({ cart }) => {
   const removeCart = async (id) => {
     const carts = await removeItem(id);
     setCartItem(carts);
+    toast.error('product removed 🔥' )
   };
 
   return (

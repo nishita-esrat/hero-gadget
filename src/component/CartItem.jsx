@@ -2,15 +2,17 @@ import React, { useContext } from "react";
 import SingleCartItem from "./SingleCartItem";
 import { CartListContext } from "../App";
 import { clearItem } from "../utils";
-
+import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const CartItem = () => {
-  const [cartItem , setCartItem] = useContext(CartListContext);
-//  clear item
-  const clearCart = ()=>{
-    const clear = clearItem()
-    setCartItem(clear)
-  }
+  const [cartItem, setCartItem] = useContext(CartListContext);
+  //  clear item
+  const clearCart = () => {
+    const clear = clearItem();
+    setCartItem(clear);
+    toast.error("All items removed !🔥");
+  };
   //  count total amount
   const totalAmount = () => {
     let total = 0;
@@ -19,6 +21,16 @@ const CartItem = () => {
       total = total + amount;
     });
     return total;
+  };
+  // place order
+  const placeOrder = (cartItem) => {
+    if (cartItem.length != 0) {
+      toast.success("order placed !✌️");
+    } else {
+      toast.error("cart is empty ! 🔥");
+    }
+    const clear = clearItem();
+    setCartItem(clear);
   };
   const total = totalAmount();
   return (
@@ -48,11 +60,20 @@ const CartItem = () => {
           </div>
           <div className="text-right">
             {cartItem.length ? (
-              <button className="btn-outline mr-4" onClick={clearCart}>Clear Cart</button>
+              <button className="btn-outline mr-4" onClick={clearCart}>
+                Clear Cart
+              </button>
             ) : (
-              <button className="btn-outline mr-4">Back To Shop</button>
+              <Link to="/" className="btn-outline mr-4">
+                Back To Shop
+              </Link>
             )}
-            <button className="btn-primary">Place Order</button>
+            <button
+              className="btn-primary"
+              onClick={() => placeOrder(cartItem)}
+            >
+              Place Order
+            </button>
           </div>
         </div>
       </div>

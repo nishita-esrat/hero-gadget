@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CartListContext } from "../App";
 import { addToCart } from "../utils";
 import LoaderFunction from "./LoaderFun";
+import toast from "react-hot-toast";
 
 const SingleShopItem = ({ product }) => {
   const { picture, price, category, name, id } = product;
@@ -11,6 +12,7 @@ const SingleShopItem = ({ product }) => {
     addToCart(id);
     const { cartItems } = await LoaderFunction();
     setCartItem(cartItems);
+    toast.success('product added ! 🛒')
   };
 
   return (
