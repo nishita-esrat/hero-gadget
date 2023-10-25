@@ -1,9 +1,9 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext } from "react";
 import SingleCartItem from "./SingleCartItem";
+import { CartListContext } from "../App";
 
 const CartItem = () => {
-  const { cartItem, products } = useLoaderData();
+  const [cartItem, setCartItem] = useContext(CartListContext);
   const totalAmount = () => {
     let total = 0;
     cartItem.map((item) => {
@@ -29,7 +29,7 @@ const CartItem = () => {
           </div>
           <div className="text-right">
             <p>
-              Total amount:{" "}
+              Total amount:
               <span className="font-semibold">
                 {cartItem.length ? `${total}` : 0}$
               </span>

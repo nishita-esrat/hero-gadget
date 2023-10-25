@@ -9,13 +9,13 @@ const LoaderFunction = async () => {
   if (isStorage) {
     shoppingCart = JSON.parse(isStorage);
   }
-  let cartItem = [];
+  let cartItems = [];
   for (const id in shoppingCart) {
     let singleCart = products.find((item) => item.id == id);
     singleCart.quantity = shoppingCart[id];
-    cartItem.push(singleCart);
+    cartItems.push(singleCart);
   }
-  return {cartItem , products}
+  return {cartItems , products}
 };
 
 export default LoaderFunction;
