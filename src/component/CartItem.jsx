@@ -1,11 +1,17 @@
 import React, { useContext } from "react";
 import SingleCartItem from "./SingleCartItem";
 import { CartListContext } from "../App";
+import { clearItem } from "../utils";
 
 
 const CartItem = () => {
   const [cartItem , setCartItem] = useContext(CartListContext);
- 
+//  clear item
+  const clearCart = ()=>{
+    const clear = clearItem()
+    setCartItem(clear)
+  }
+  //  count total amount
   const totalAmount = () => {
     let total = 0;
     cartItem.forEach((item) => {
@@ -42,7 +48,7 @@ const CartItem = () => {
           </div>
           <div className="text-right">
             {cartItem.length ? (
-              <button className="btn-outline mr-4">Clear Cart</button>
+              <button className="btn-outline mr-4" onClick={clearCart}>Clear Cart</button>
             ) : (
               <button className="btn-outline mr-4">Back To Shop</button>
             )}

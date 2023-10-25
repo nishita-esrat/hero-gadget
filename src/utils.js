@@ -27,10 +27,22 @@ const removeItem = async (id) => {
   let cartItems = [];
   for (const id in shoppingCart) {
     let findCart = products.find((item) => item.id === id);
-    findCart.quantity = shoppingCart[id]
-    cartItems.push(findCart)
+    findCart.quantity = shoppingCart[id];
+    cartItems.push(findCart);
   }
   localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
-  return cartItems
+  return cartItems;
 };
-export { addToCart, removeItem };
+
+// clear cart item
+const clearItem = () => {
+  let shoppingCart = {};
+  let isStorage = localStorage.getItem("shoppingCart");
+  if (isStorage) {
+    shoppingCart = JSON.parse(isStorage);
+  }
+  localStorage.removeItem("shoppingCart");
+  const cartItems = [];
+  return cartItems;
+};
+export { addToCart, removeItem, clearItem };
