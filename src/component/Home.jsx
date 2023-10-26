@@ -13,7 +13,7 @@ const Home = () => {
             Appliances at extremely affordable Price.
           </p>
           <div className="text-center flex  flex-col md:flex-row items-center gap-4 md:gap-7">
-            <Link className="btn-primary">
+            <Link to='/shop' className="btn-primary">
               Shop Now
             </Link>
             <Link className="btn-outline">learn more</Link>
